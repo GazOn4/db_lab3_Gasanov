@@ -1,6 +1,13 @@
 -- Запит №1
--- Вивести таблицю з матчами.
-select * from matches;
+-- Вивести назву клубів і кількість зіграних матчів.
+select
+	club.club_name,
+	count(club_id_one) as count_game 
+from
+	club
+	join matches on club.club_id = matches.club_id_one
+group by
+	club.club_name;
 
 -- Запит №2
 -- Вивести гравця і матч, у якому забив більше за всіх голів.
